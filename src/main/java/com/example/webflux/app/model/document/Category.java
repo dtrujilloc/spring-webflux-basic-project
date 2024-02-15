@@ -8,22 +8,17 @@ import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
-import java.time.LocalDate;
-
 /**
- * Clase que representa un documento dentro de la coleccion de Products
+ * Clase que representa un documento dentro de la coleccion de Categories
  */
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-@Document(collection = "Products")
-public class Product {
+@Document(collection = "Categories")
+public class Category {
     @MongoId
     private String id;
     private String name;
-    private Double price;
-    private LocalDate createAt;
-    private Category category;
 }
