@@ -16,3 +16,16 @@ Para este proyecto utilizaremos una arquitectura de capas (Layer Architecture) l
 -   Controller: Capa relacionada a los controladores, es la que se encarga de exponer los entry points o las rutas de acceso a nuestro servicios. No debe contener ningun tipo de logica. simplementa la exposicion de las rutas.
 
 Es comun que la separacion de estas capas se haga por paquetes. Esto es lo que haremos inicialmente y posteriormente en sus respectiva ramas haremos los desarrollos correspondientes.
+
+### 1. Capa de Modelo
+Esta capa contiene todas los conceptos relacionados al modelo del negocio, por ejemplo las entidades (conceptos basicos), relacion entre entidades, repositorios (objetos que nos permiten realizar operacion con las BDs), DAO (objetos que nos permiten acceder a la data). Basicamente en esta capa se encapsula todo lo relacionado a la data.
+
+Veamos que se encapsula en cada uno de los paquetes:
+
+- Document: inicialmente es importante conocer los conceptos que se transformaran en entidades, de tal forma que representaran nuestro negocio. En este caso tenemos los coceptos de Producto y Categoria, que basicamente representan la relacion de que un producto puede ser de una categoria y una categoria puede ser multiples productos. Cabe resaltar que como se estan trabajando con mongoDB, una BD NoSQL, aqui las entidades o tablas son conocidas como Colecciones y un registro es conocido como Documento, dentro del documento se encuentran cada uno de los campos que hacen relacion a las columnas de la tablas. Este Documento es la representacion de un objeto Json donde se puede ver que cada campo y valor son representados por una llave-valor. 
+
+- Repository: Por otro lado estan los repositorios que hacen uso de la API de acceso a datos para MongoDB, es como la API de JPA para spring boot pero en este caso para Webflux y para MongoDB, esta dependencia lo que nos permite es la construccion de repositorio con el objetivo de tener acceso a nuestra BD de una manera rapida, sencilla y transparente. Notar como con solo la extencion de una clase podemos tener acceso a todos los metodos suficientes y necesarios para realizar un CRUD completo. Tambien es posible construir operaciones utiliznado la sintaxis del nombre del metodo o incluso especificar la operacion por medio de una query utilizando la sintaxis normal como para hacer una query en mongoDB.
+
+Por otro lado tambien en el archivo de resources/application.yml se configuro la conexion a la BD. en este archivo se pueden configurar multiples aspectos de nuestra aplicacion (puertos, conexiones a BD, nombre de aplicacion, etc).
+
+Y tambien en la clase InitDataMongoDBConfiguration en el paquete de configuration, se realizo la configuracion inicial de los datos de prueba iniciales, esto debido a que para mongoDB no existe un archivo init como lo hay para diferentes BBDD relacionales. Lo que se realiza es una clase de configuracion donde se utiliza el repository para guardar datos iniciales.

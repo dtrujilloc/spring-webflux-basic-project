@@ -43,12 +43,12 @@ public class InitDataMongoDBConfiguration implements CommandLineRunner {
 
         // Creacion de productos en un list
         List<Product> productInitList = Arrays.asList(
-                Product.builder().name("PC Asus").price(100.10).category(electronicCategory).build(),
-                Product.builder().name("TV LG").price(200.10).build(),
-                Product.builder().name("Apple 15").price(200.10).build(),
-                Product.builder().name("Xiaomi pro 8").price(200.10).build(),
-                Product.builder().name("Basketball net").price(10.10).build(),
-                Product.builder().name("Table").price(80.10).build()
+                Product.builder().name("PC Asus").price(100.10).quantity(12).category(electronicCategory).build(),
+                Product.builder().name("TV LG").price(200.10).quantity(10).build(),
+                Product.builder().name("Apple 15").price(200.10).quantity(4).build(),
+                Product.builder().name("Xiaomi pro 8").price(200.10).quantity(7).build(),
+                Product.builder().name("Basketball net").price(10.10).quantity(20).build(),
+                Product.builder().name("Table").price(80.10).quantity(2).build()
         );
 
         // Creacion del flux de categorias a partir de las categorias para ser guardadas y posteriomente la creacion
