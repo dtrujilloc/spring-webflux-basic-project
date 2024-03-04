@@ -18,7 +18,7 @@ public interface ProductRepository extends ReactiveMongoRepository<Product, Stri
      * @param name String que representa el nombre del producto que quiero buscar
      * @return Un Mono de Producto
      */
-    Mono<Category> findByName(String name);
+    Mono<Product> findByName(String name);
 
     /**
      * Query que me permite buscar los productos que esten en un rango de precio. La query se especifica en la etiqueta
