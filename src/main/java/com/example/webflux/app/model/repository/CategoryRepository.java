@@ -8,4 +8,5 @@ import reactor.core.publisher.Mono;
  * Interface que permite la conexion e interaccion con la BD relacionada a la coleccion de Category
  */
 public interface CategoryRepository extends ReactiveMongoRepository<Category, String> {
+    Mono<Category> findByName(String name);
 }

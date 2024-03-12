@@ -11,10 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class ProductRequestDto {
+public class CategoryResponseDto {
+    private String id;
     private String name;
-    private Double price;
-    private Integer quantity;
-    private String categoryName;
-
 }
