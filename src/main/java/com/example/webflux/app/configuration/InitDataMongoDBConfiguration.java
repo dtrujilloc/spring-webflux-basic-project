@@ -44,7 +44,7 @@ public class InitDataMongoDBConfiguration implements CommandLineRunner {
 
         // Creacion del flux de categorias a partir de las categorias para ser guardadas y posteriomente la creacion
         // de un flux de productos a partir de un list de productos y guardado de cada uno de los datos
-        Flux.just("ELECTRONIC", "SPORT", "HOME")
+        Flux.just("electronic", "sport", "home")
                 .flatMap(categoryName -> categoryService.save(categoryName))
                 .doOnNext(category -> log.info("The category was saved -> name:{} - id:{}", category.getName(), category.getId()))
                 .thenMany(

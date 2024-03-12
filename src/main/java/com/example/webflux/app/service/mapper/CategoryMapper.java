@@ -18,7 +18,7 @@ public class CategoryMapper {
 
     public Category buildCategory(String categoryName) {
         return Category.builder()
-                .name(categoryName)
+                .name(categoryName.toUpperCase())
                 .build();
     }
 

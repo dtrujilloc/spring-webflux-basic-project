@@ -55,3 +55,20 @@ configurar multiples aspectos de nuestra aplicacion (puertos, conexiones a BD, n
 Y tambien en la clase InitDataMongoDBConfiguration en el paquete de configuration, se realizo la configuracion inicial de 
 los datos de prueba iniciales, esto debido a que para mongoDB no existe un archivo init como lo hay para diferentes BBDD 
 relacionales. Lo que se realiza es una clase de configuracion donde se utiliza el repository para guardar datos iniciales.
+
+### 1. Capa de Service
+En este capa se construyen todas las clases que estan relacionadas con la logica de negocio y/o reglas de negocio. Por lo 
+general las clases que contienen esta logica son los Services pero hacen uso de diferentes clases que permiten lograr todo 
+el proceso como mapeadores, validadores y mas.
+
+Para este caso se utilizaron algunas reglas de negocio como:
+- Categoria:
+  1. Las categorias siempren tienen que ser guardadas en la BD con el nombre en mayuscula.
+- Productos:
+  1. Los productos tienen que ser guardados siempre con el nombre en miniscula.
+  2. Los productos no pueden ser guardados si no existe la categoria en la BD.
+  3. No se puede repetir el nombre de un producto en la BD. tiene que ser unico.
+
+Las reglas anteriores estan plasmadas en el servicio de cada uno. donde tambien se hizo la transformacion de los datos a unos
+DTOs de respuesta, y para esto se utilizaron clases de mapeo para separar las responsabilidades. Tambien hay que resaltar que
+en estas clases de Servicios se hace uso de las clases de repositorio para poder realizar operaciones con la DATA.
