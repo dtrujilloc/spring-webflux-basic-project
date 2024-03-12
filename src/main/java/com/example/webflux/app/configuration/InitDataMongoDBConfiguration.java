@@ -1,10 +1,7 @@
 package com.example.webflux.app.configuration;
 
 import com.example.webflux.app.common.dto.ProductRequestDto;
-import com.example.webflux.app.model.document.Category;
-import com.example.webflux.app.model.document.Product;
-import com.example.webflux.app.model.repository.CategoryRepository;
-import com.example.webflux.app.model.repository.ProductRepository;
+import com.example.webflux.app.service.interfaces.ICategoryService;
 import com.example.webflux.app.service.interfaces.IProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
 import reactor.core.publisher.Flux;
 
-import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
@@ -24,11 +20,8 @@ import java.util.List;
 @Configuration
 @RequiredArgsConstructor
 public class InitDataMongoDBConfiguration implements CommandLineRunner {
-
-    private final ProductRepository productRepository;
     private final IProductService productService;
-    private final CategoryRepository categoryRepository;
-
+    private final ICategoryService categoryService;
     private final ReactiveMongoTemplate reactiveMongoTemplate;
 
     @Override
@@ -38,11 +31,6 @@ public class InitDataMongoDBConfiguration implements CommandLineRunner {
         // Eliminar los datos existentes en las Coleciones para no repetir datos
         reactiveMongoTemplate.dropCollection("Products").subscribe();
         reactiveMongoTemplate.dropCollection("Categories").subscribe();
-
-        // Creacion de las objeto de categoria
-        Category electronicCategory = Category.builder().name("ELECTRONIC").build();
-        Category sportCategory = Category.builder().name("SPORT").build();
-        Category homeCategory = Category.builder().name("HOME").build();
 
         // Creacion de productos Dto en un list
         List<ProductRequestDto> productRequestDtoInitList = Arrays.asList(
@@ -56,8 +44,8 @@ public class InitDataMongoDBConfiguration implements CommandLineRunner {
 
         // Creacion del flux de categorias a partir de las categorias para ser guardadas y posteriomente la creacion
         // de un flux de productos a partir de un list de productos y guardado de cada uno de los datos
-        Flux.just(electronicCategory, sportCategory, homeCategory)
-                .flatMap(category -> categoryRepository.save(category))
+        Flux.just("ELECTRONIC", "SPORT", "HOME")
+                .flatMap(categoryName -> categoryService.save(categoryName))
                 .doOnNext(category -> log.info("The category was saved -> name:{} - id:{}", category.getName(), category.getId()))
                 .thenMany(
                         Flux.fromIterable(productRequestDtoInitList)
