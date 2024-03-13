@@ -56,7 +56,7 @@ Y tambien en la clase InitDataMongoDBConfiguration en el paquete de configuratio
 los datos de prueba iniciales, esto debido a que para mongoDB no existe un archivo init como lo hay para diferentes BBDD 
 relacionales. Lo que se realiza es una clase de configuracion donde se utiliza el repository para guardar datos iniciales.
 
-### 1. Capa de Service
+### 2. Capa de Service
 En este capa se construyen todas las clases que estan relacionadas con la logica de negocio y/o reglas de negocio. Por lo 
 general las clases que contienen esta logica son los Services pero hacen uso de diferentes clases que permiten lograr todo 
 el proceso como mapeadores, validadores y mas.
