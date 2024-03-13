@@ -48,7 +48,7 @@ public class CategoryRestController {
     }
 
     @DeleteMapping("/{id}")
-    public Mono<Void> deleteCategoryById(@PathVariable("id") String id) {
+    public Mono<CategoryResponseDto> deleteCategoryById(@PathVariable("id") String id) {
         return categoryService.deleteById(id);
     }
 }

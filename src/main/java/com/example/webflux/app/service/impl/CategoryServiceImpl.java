@@ -59,7 +59,12 @@ public class CategoryServiceImpl implements ICategoryService {
     }
 
     @Override
-    public Mono<Void> deleteById(String id) {
-        return categoryRepository.deleteById(id);
+    public Mono<CategoryResponseDto> deleteById(String id) {
+        return categoryRepository.findById(id)
+                .map(category -> {
+                        categoryRepository.deleteById(category.getId());
+                        return category;
+                })
+                .map(categoryMapper::categoryToCategoryResponseDto);
     }
 }

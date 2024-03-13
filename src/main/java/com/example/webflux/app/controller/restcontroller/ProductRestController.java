@@ -36,13 +36,23 @@ public class ProductRestController {
         return productService.getByName(productName);
     }
 
+    @GetMapping("/range-query")
+    public Flux<ProductResponseDto> getProductByRangeQuery(@RequestParam(name = "price1") Double price1, @RequestParam(name = "price2") Double price2) {
+        return productService.getByRangeQuery(price1, price2);
+    }
+
+    @GetMapping("/range-method-query")
+    public Flux<ProductResponseDto> getProductByRangeMethodQuery(@RequestParam(name = "price1") Double price1, @RequestParam(name = "price2") Double price2) {
+        return productService.getByRangeMethodQuery(price1, price2);
+    }
+
     @PostMapping
     public Mono<ProductResponseDto> saveProduct(@RequestBody ProductRequestDto productRequestDto) {
         return productService.saveProduct(productRequestDto);
     }
 
     @DeleteMapping("/{id}")
-    public Mono<Void> deleteProductById(@PathVariable("id") String id) {
+    public Mono<ProductResponseDto> deleteProductById(@PathVariable("id") String id) {
         return productService.deleteById(id);
     }
 }

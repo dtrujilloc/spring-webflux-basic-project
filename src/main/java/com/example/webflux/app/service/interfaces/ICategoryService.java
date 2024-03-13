@@ -17,5 +17,5 @@ public interface ICategoryService {
 
     Mono<CategoryResponseDto> update(CategoryDto categoryDto);
 
-    Mono<Void> deleteById(String id);
+    Mono<CategoryResponseDto> deleteById(String id);
 }

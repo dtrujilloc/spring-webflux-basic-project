@@ -20,5 +20,5 @@ public interface IProductService {
 
     Flux<ProductResponseDto> getByRangeMethodQuery(Double price1, Double price2);
 
-    Mono<Void> deleteById(String id);
+    Mono<ProductResponseDto> deleteById(String id);
 }

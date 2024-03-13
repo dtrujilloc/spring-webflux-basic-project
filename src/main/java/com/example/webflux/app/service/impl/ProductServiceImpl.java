@@ -27,12 +27,6 @@ public class ProductServiceImpl implements IProductService {
     @Override
     public Flux<ProductResponseDto> getAll() {
         return productRepository.findAll()
-                .map(product -> {
-
-                    product.setName(product.getName().toUpperCase());
-
-                    return product;
-                })
                 .map(product -> productMapper.mapProductToProductResponseDto(product));
     }
 
@@ -97,7 +91,13 @@ public class ProductServiceImpl implements IProductService {
     }
 
     @Override
-    public Mono<Void> deleteById(String id) {
-        return productRepository.deleteById(id);
+    public Mono<ProductResponseDto> deleteById(String id) {
+        return productRepository.findById(id)
+                .map(product -> {
+                    productRepository.deleteById(product.getId());
+
+                    return product;
+                })
+                .map(productMapper::mapProductToProductResponseDto);
     }
 }
