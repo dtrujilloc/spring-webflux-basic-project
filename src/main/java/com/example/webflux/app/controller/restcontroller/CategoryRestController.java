@@ -2,7 +2,7 @@ package com.example.webflux.app.controller.restcontroller;
 
 import com.example.webflux.app.common.dto.CategoryDto;
 import com.example.webflux.app.common.dto.CategoryResponseDto;
-import com.example.webflux.app.service.impl.CategoryServiceImpl;
+import com.example.webflux.app.service.interfaces.ICategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,7 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 @RequestMapping("/rest-controller/category")
 public class CategoryRestController {
-    private final CategoryServiceImpl categoryService;
+    private final ICategoryService categoryService;
 
     @GetMapping
     public Flux<CategoryResponseDto> getAllCategories() {

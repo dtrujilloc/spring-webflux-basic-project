@@ -78,7 +78,7 @@ public class ProductServiceImpl implements IProductService {
 
     @Override
     public Mono<ProductResponseDto> getByName(String name) {
-        return productRepository.findByName(name)
+        return productRepository.findByName(name.toLowerCase())
                 .map(productMapper::mapProductToProductResponseDto);
     }
 
