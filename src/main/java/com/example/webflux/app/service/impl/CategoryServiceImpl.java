@@ -33,7 +33,7 @@ public class CategoryServiceImpl implements ICategoryService {
 
     @Override
     public Mono<CategoryResponseDto> getByName(String name) {
-        return categoryRepository.findByName(name)
+        return categoryRepository.findByName(name.toUpperCase())
                 .map(categoryMapper::categoryToCategoryResponseDto);
     }
 
@@ -51,7 +51,7 @@ public class CategoryServiceImpl implements ICategoryService {
                         return Mono.just(category);
                     }
 
-                    category.setName(categoryDto.getName());
+                    category.setName(categoryDto.getName().toUpperCase());
                     return Mono.just(category);
                 })
                 .flatMap(categoryRepository::save)
