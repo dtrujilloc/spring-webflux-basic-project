@@ -2,6 +2,8 @@ package com.example.webflux.app.service.impl;
 
 import com.example.webflux.app.common.dto.ProductRequestDto;
 import com.example.webflux.app.common.dto.ProductResponseDto;
+import com.example.webflux.app.common.exception.CategoryDoesntExistException;
+import com.example.webflux.app.common.exception.ProductAlreadyExistException;
 import com.example.webflux.app.model.document.Category;
 import com.example.webflux.app.model.document.Product;
 import com.example.webflux.app.model.repository.CategoryRepository;
@@ -48,7 +50,7 @@ public class ProductServiceImpl implements IProductService {
         return productRepository
                 .findByName(productRequestDto.getName().toLowerCase())
                 .doOnNext(product -> {
-                    throw new RuntimeException("This product already exist in the DB");
+                    throw new ProductAlreadyExistException("This product already exist in the DB");
                 })
                 .switchIfEmpty(saveProductAndBuildProductResponseDto(productRequestDto));
 
@@ -67,7 +69,7 @@ public class ProductServiceImpl implements IProductService {
 
     private Mono<Category> searchCategoryByName(String categoryName) {
         return categoryRepository.findByName(categoryName.toUpperCase())
-                .switchIfEmpty(Mono.error(new RuntimeException("The category doesn't exist to relate with the product to save")));
+                .switchIfEmpty(Mono.error(new CategoryDoesntExistException("The category doesn't exist to relate with the product to save")));
     }
 
     @Override
