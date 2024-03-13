@@ -72,3 +72,16 @@ Para este caso se utilizaron algunas reglas de negocio como:
 Las reglas anteriores estan plasmadas en el servicio de cada uno. donde tambien se hizo la transformacion de los datos a unos
 DTOs de respuesta, y para esto se utilizaron clases de mapeo para separar las responsabilidades. Tambien hay que resaltar que
 en estas clases de Servicios se hace uso de las clases de repositorio para poder realizar operaciones con la DATA.
+
+### 3. Capa de Controlador
+el objetivo de esta capa es la exposicion de nuestros entrypoints, es decir tener un punto de acceso o entrada a nuestros
+servicios libre de cualquier logica de negocio o proceso complejo que se deba hacer. Basicamente en esta capa se hace uso
+de las clases de los servicios para poder acceder a las funcionalidades como tal.
+
+Webflux nos permite crear puntos de entrada de dos maneras:
+1. RestController: Como se puede ver en el paquete de restController, se hace uso de una clase la cual se anota con una 
+etiqueta de @RestController, esta etiqueta nos permite agregar la clase al contexto de spring y que sea identificado como 
+punto de entrada, ademas de especificar los verbos y paths de cada uno de los servicios.
+Esta forma es la que nos proporciona Spring MVC la cual tambien es valida en spring webflux. Hay que aclarar que por venir
+de spring MVC no es una mala manera de hacerlo solo que spring webflux nos proporciona otra forma de hacerlo la cual tiene
+en cuenta la programacion funcional la cual es principal en el enfoque que tiene spring webflux.
