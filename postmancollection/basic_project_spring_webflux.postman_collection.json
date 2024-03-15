@@ -1,0 +1,688 @@
+{
+	"info": {
+		"_postman_id": "43f02457-14e6-47ba-9bc5-1b5cc5767d34",
+		"name": "basic_project_spring_webflux",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29845140"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "REST Controller",
+					"item": [
+						{
+							"name": "Get All Products",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/rest-controller/product",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest-controller",
+										"product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Product by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/rest-controller/product/65f11b7f9df19526ec4d6550",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest-controller",
+										"product",
+										"65f11b7f9df19526ec4d6550"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Product by name",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/rest-controller/product/name?product-name=tv lg",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest-controller",
+										"product",
+										"name"
+									],
+									"query": [
+										{
+											"key": "product-name",
+											"value": "tv lg"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Product by range query",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/rest-controller/product/range-query?price1=0&price2=100.1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest-controller",
+										"product",
+										"range-query"
+									],
+									"query": [
+										{
+											"key": "price1",
+											"value": "0"
+										},
+										{
+											"key": "price2",
+											"value": "100.1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Product by range method query",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/rest-controller/product/range-method-query?price1=0&price2=100.1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest-controller",
+										"product",
+										"range-method-query"
+									],
+									"query": [
+										{
+											"key": "price1",
+											"value": "0"
+										},
+										{
+											"key": "price2",
+											"value": "100.1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Save Product",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"tv prueba\",\r\n    \"price\": 200.1,\r\n    \"quantity\": 10,\r\n    \"categoryName\": \"ELeCTRONIc\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/router-controller/product",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"router-controller",
+										"product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Product",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/rest-controller/product/65f11c8c9df19526ec4d6553",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest-controller",
+										"product",
+										"65f11c8c9df19526ec4d6553"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Route Controller",
+					"item": [
+						{
+							"name": "Get All Products",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/router-controller/product",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"router-controller",
+										"product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Product by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/router-controller/product/65f212d1b648f872292d574d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"router-controller",
+										"product",
+										"65f212d1b648f872292d574d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Product by name",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/router-controller/product/name?product-name=TABLE",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"router-controller",
+										"product",
+										"name"
+									],
+									"query": [
+										{
+											"key": "product-name",
+											"value": "TABLE"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Product by range query",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/router-controller/product/range-query?price1=0&price2=100",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"router-controller",
+										"product",
+										"range-query"
+									],
+									"query": [
+										{
+											"key": "price1",
+											"value": "0"
+										},
+										{
+											"key": "price2",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Product by range method query Copy",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/router-controller/product/range-method-query?price1=0&price2=100",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"router-controller",
+										"product",
+										"range-method-query"
+									],
+									"query": [
+										{
+											"key": "price1",
+											"value": "0"
+										},
+										{
+											"key": "price2",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Save Product",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"tv prueba\",\r\n    \"price\": 200.1,\r\n    \"quantity\": 10,\r\n    \"categoryName\": \"ELeCTRONIC\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/rest-controller/product",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest-controller",
+										"product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Product",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/rest-controller/product/65f11c8c9df19526ec4d6553",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest-controller",
+										"product",
+										"65f11c8c9df19526ec4d6553"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "REST Controller",
+					"item": [
+						{
+							"name": "Get All Categories",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/rest-controller/category",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest-controller",
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Category by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/rest-controller/category/65f111084cfcc0724f7255c2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest-controller",
+										"category",
+										"65f111084cfcc0724f7255c2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Category by name",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/rest-controller/category/name?category-name=home",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest-controller",
+										"category",
+										"name"
+									],
+									"query": [
+										{
+											"key": "category-name",
+											"value": "home"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Save Category",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/rest-controller/category?category-name=office",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest-controller",
+										"category"
+									],
+									"query": [
+										{
+											"key": "category-name",
+											"value": "office"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Category",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"65f114e5e1fcd65b36f2e629\",\r\n    \"name\": \"building\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/rest-controller/category",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest-controller",
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Category",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/rest-controller/category/65f114e5e1fcd65b36f2e629",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest-controller",
+										"category",
+										"65f114e5e1fcd65b36f2e629"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Route Controller",
+					"item": [
+						{
+							"name": "Get All Categories",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/router-controller/category",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"router-controller",
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Category by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/router-controller/category/65f22bf6a555ff69478798f4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"router-controller",
+										"category",
+										"65f22bf6a555ff69478798f4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Categoryby name",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/router-controller/category/name?category-name=sport",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"router-controller",
+										"category",
+										"name"
+									],
+									"query": [
+										{
+											"key": "category-name",
+											"value": "sport"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Save Category",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/rest-controller/category?category-name=test",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest-controller",
+										"category"
+									],
+									"query": [
+										{
+											"key": "category-name",
+											"value": "test"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Category Copy",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"65f22cf4a96d0d38d2222f9c\",\r\n    \"name\": \"test modify\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/router-controller/category",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"router-controller",
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Category",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/rest-controller/category/65f22cf4a96d0d38d2222f9c",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rest-controller",
+										"category",
+										"65f22cf4a96d0d38d2222f9c"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
