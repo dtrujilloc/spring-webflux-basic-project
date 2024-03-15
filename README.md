@@ -79,9 +79,14 @@ servicios libre de cualquier logica de negocio o proceso complejo que se deba ha
 de las clases de los servicios para poder acceder a las funcionalidades como tal.
 
 Webflux nos permite crear puntos de entrada de dos maneras:
-1. RestController: Como se puede ver en el paquete de restController, se hace uso de una clase la cual se anota con una 
+1. RestController: Como se puede ver en el paquete de restcontroller, se hace uso de una clase la cual se anota con una 
 etiqueta de @RestController, esta etiqueta nos permite agregar la clase al contexto de spring y que sea identificado como 
 punto de entrada, ademas de especificar los verbos y paths de cada uno de los servicios.
 Esta forma es la que nos proporciona Spring MVC la cual tambien es valida en spring webflux. Hay que aclarar que por venir
 de spring MVC no es una mala manera de hacerlo solo que spring webflux nos proporciona otra forma de hacerlo la cual tiene
 en cuenta la programacion funcional la cual es principal en el enfoque que tiene spring webflux.
+2. FuntionalController: Como se puede ver en el paquete de functionalcontroller, se hace uso de los router functions para
+especificar las rutas de los controladores por medio de programacion funcional, para esto tambien es necesario la creacion
+de un handler el cual nos permite utilizar las operaciones construida en los servicios y el resultado encapsularlo en un 
+ServerResponse el cual es el que devuelve el router function. Como se dijo anteriormente estas router functions son una 
+manera de crear puntos de entrada a nuestra API.
